@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+/*
+  ===========================================================
+  THEME FILE  -  change colors / fonts for the whole app here
+  ===========================================================
+  Every page uses the "indigo-*" and "slate-*" Tailwind classes.
+  We redefine those two palettes, so the entire UI changes
+  without touching every component.
+
+  indigo-*  => BRAND color (now warm orange)
+  slate-*   => NEUTRAL color (now warm charcoal / stone)
+*/
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Brand: orange */
+  --color-indigo-50: #fff7ed;
+  --color-indigo-100: #ffedd5;
+  --color-indigo-200: #fed7aa;
+  --color-indigo-300: #fdba74;
+  --color-indigo-400: #fb923c;
+  --color-indigo-500: #f97316;
+  --color-indigo-600: #ea580c;
+  --color-indigo-700: #c2410c;
+  --color-indigo-800: #9a3412;
+  --color-indigo-900: #7c2d12;
+
+  /* Neutral: warm stone */
+  --color-slate-50: #faf8f5;
+  --color-slate-100: #f3efe9;
+  --color-slate-200: #e7e1d8;
+  --color-slate-300: #d3cbbf;
+  --color-slate-400: #a39a8c;
+  --color-slate-500: #7a7164;
+  --color-slate-600: #5b5348;
+  --color-slate-700: #433d35;
+  --color-slate-800: #2b2723;
+  --color-slate-900: #1c1917;
+  --color-slate-950: #110f0d;
+
+  /* Animations used in the components */
+  --animate-fade-in: fade-in 0.45s ease-out both;
+  --animate-slide-in: slide-in 0.25s ease-out both;
+  --animate-slide-down: slide-down 0.2s ease-out both;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateX(-6px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-slate-50);
+  color: var(--color-slate-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-indigo-200);
+  color: var(--color-slate-900);
+}
+
+/* thin custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-slate-300); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-slate-400); }
